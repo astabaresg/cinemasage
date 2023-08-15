@@ -16,6 +16,7 @@ dependencies:
   flutter_riverpod: ^2.3.6
   go_router: ^10.0.0
   hooks_riverpod: ^2.3.7
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_lints: ^2.0.0
