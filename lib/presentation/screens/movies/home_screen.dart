@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cinemasage/presentation/widgets/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:cinemasage/presentation/providers/providers.dart';
 
@@ -10,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: _HomeView(),
+      bottomNavigationBar: CustomBottomNavigation(),
     );
   }
 }
@@ -30,21 +32,19 @@ class _HomeViewState extends ConsumerState<_HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    final nowPlayingMovies = ref.watch(nowPlayingMoviesProvider);
+    // final nowPlayingMovies = ref.watch(nowPlayingMoviesProvider);
+    final nowPlayingMoviesSlideshow = ref.watch(moviesSlideshowProvider);
     final colors = Theme.of(context).colorScheme;
-    if (nowPlayingMovies.isEmpty) {
+    if (nowPlayingMoviesSlideshow.isEmpty) {
       return Center(
         child: CircularProgressIndicator(color: colors.primary),
       );
     }
-    return ListView.builder(
-      itemCount: nowPlayingMovies.length,
-      itemBuilder: (context, index) {
-        final movie = nowPlayingMovies[index];
-        return ListTile(
-          title: Text(movie.title),
-        );
-      },
+    return Column(
+      children: [
+        const CustomAppBar(),
+        MoviesSlideshow(movies: nowPlayingMoviesSlideshow)
+      ],
     );
   }
 }
