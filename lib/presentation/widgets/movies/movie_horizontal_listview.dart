@@ -59,7 +59,7 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
             itemCount: widget.movies.length,
             controller: scrollController,
             itemBuilder: (context, index) =>
-                _Slide(movie: widget.movies[index]),
+                FadeInRight(child: _Slide(movie: widget.movies[index])),
           ))
         ],
       ),
