@@ -15,9 +15,9 @@ CinemaSage is a movie application built using Flutter that allows you to explore
 
 ## Screenshots
 
-![Screenshot 1](assets/screenshot-1.png)
-![Screenshot 2](assets/screenshot-2.png)
-![Screenshot 3](assets/screenshot-3.png)
+<img src="assets/screenshot-1.png" alt="Screenshot 1" width="300">
+<img src="assets/screenshot-2.png" alt="Screenshot 2" width="300">
+<img src="assets/screenshot-3.png" alt="Screenshot 3" width="300">
 
 ## Getting Started
 
