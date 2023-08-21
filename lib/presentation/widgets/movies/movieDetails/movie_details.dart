@@ -10,6 +10,7 @@ class MovieDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final textStyles = Theme.of(context).textTheme;
+    final colors = Theme.of(context).colorScheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,6 +62,9 @@ class MovieDetails extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 10),
                     child: Chip(
                       label: Text(gender),
+                      backgroundColor: colors.tertiary,
+                      labelStyle: textStyles.labelMedium!.copyWith(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                     ),
