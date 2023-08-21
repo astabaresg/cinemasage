@@ -5,5 +5,5 @@ class AppTheme {
   ThemeData getTheme() => ThemeData(
       useMaterial3: true,
       textTheme: GoogleFonts.getTextTheme('Poppins'),
-      colorSchemeSeed: const Color(0xFF002642));
+      colorSchemeSeed: const Color(0xFF2B124C));
 }

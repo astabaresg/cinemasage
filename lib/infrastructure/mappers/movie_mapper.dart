@@ -1,5 +1,6 @@
 import 'package:cinemasage/config/constants/constants.dart';
 import 'package:cinemasage/domain/entities/movie.dart';
+import 'package:cinemasage/infrastructure/models/moviedb/movie_details.dart';
 import 'package:cinemasage/infrastructure/models/moviedb/movie_moviedb.dart';
 
 class MovieMapper {
@@ -22,4 +23,24 @@ class MovieMapper {
       video: moviedb.video,
       voteAverage: moviedb.voteAverage,
       voteCount: moviedb.voteCount);
+
+  static Movie movieDetailsToEntity(MovieDetails movie) => Movie(
+      adult: movie.adult,
+      backdropPath: movie.backdropPath != ''
+          ? '${Constants.MOVIE_DB_API_IMAGES}${movie.backdropPath}'
+          : Constants.BACKDROP_NOT_FOUND_IMAGE,
+      genreIds: movie.genres.map((e) => e.name).toList(),
+      id: movie.id,
+      originalLanguage: movie.originalLanguage,
+      originalTitle: movie.originalTitle,
+      overview: movie.overview,
+      popularity: movie.popularity,
+      posterPath: movie.posterPath != ''
+          ? '${Constants.MOVIE_DB_API_IMAGES}${movie.posterPath}'
+          : Constants.POSTER_NOT_FOUND_MESSAGE,
+      releaseDate: movie.releaseDate,
+      title: movie.title,
+      video: movie.video,
+      voteAverage: movie.voteAverage,
+      voteCount: movie.voteCount);
 }
