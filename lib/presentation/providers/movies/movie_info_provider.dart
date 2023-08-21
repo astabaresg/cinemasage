@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cinemasage/domain/entities/movie.dart';
 import 'package:cinemasage/presentation/providers/providers.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -29,7 +27,6 @@ class MovieMapNotifier extends StateNotifier<Map<String, Movie>> {
 
   Future<void> loadMovie(String movieId) async {
     if (state[movieId] != null) return;
-    log('Making http request');
     final movie = await getMovie(movieId);
     state = {...state, movieId: movie};
   }

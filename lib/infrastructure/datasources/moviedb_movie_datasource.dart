@@ -1,20 +1,14 @@
 import 'package:cinemasage/config/constants/constants.dart';
+import 'package:cinemasage/config/dio/dio_config.dart';
 import 'package:cinemasage/infrastructure/models/moviedb/movie_details.dart';
-import 'package:dio/dio.dart';
 
 import 'package:cinemasage/infrastructure/mappers/movie_mapper.dart';
 import 'package:cinemasage/infrastructure/models/moviedb/moviedb_response.dart';
-import 'package:cinemasage/config/constants/enviroment.dart';
 import 'package:cinemasage/domain/datasources/movies_datasource.dart';
 import 'package:cinemasage/domain/entities/movie.dart';
 
 class MovieDBDatasource extends MoviesDataSource {
-  final dio = Dio(BaseOptions(
-      baseUrl: Constants.MOVIE_DB_API_URL,
-      queryParameters: {
-        "api_key": Enviroment.MOVIE_DB_KEY,
-        "language": Constants.MOVIE_DB_API_LANGUAGE
-      }));
+  final dio = DioConfig.getDioClient();
 
   List<Movie> _jsonToMovies(Map<String, dynamic> json) {
     final movieDbResponse = MovieDbResponse.fromJson(json);

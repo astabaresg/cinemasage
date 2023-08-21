@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:cinemasage/infrastructure/datasources/moviedb_datasource.dart';
+import 'package:cinemasage/infrastructure/datasources/moviedb_movie_datasource.dart';
 import 'package:cinemasage/infrastructure/repositories/movie_repository_impl.dart';
 
 // This repository is immutable
