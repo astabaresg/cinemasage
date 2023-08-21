@@ -91,6 +91,7 @@ class _Slide extends StatelessWidget {
                 movie.posterPath,
                 fit: BoxFit.cover,
                 width: 150,
+                height: 240,
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress != null) {
                     return const Center(
