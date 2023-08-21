@@ -1,5 +1,6 @@
-import 'package:cinemasage/domain/entities/actor.dart';
 import 'package:flutter/material.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:cinemasage/domain/entities/actor.dart';
 
 class ActorDetail extends StatelessWidget {
   final Actor actor;
@@ -14,17 +15,19 @@ class ActorDetail extends StatelessWidget {
       child: Column(
         children: [
           //Actor photo
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: actor.haveProfilePath
-                ? Image.network(
-                    actor.profilePath,
-                    height: 180,
-                    width: 135,
-                    fit: BoxFit.cover,
-                  )
-                : Image.asset(actor.profilePath,
-                    height: 180, width: 135, fit: BoxFit.cover),
+          FadeInRight(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: actor.haveProfilePath
+                  ? Image.network(
+                      actor.profilePath,
+                      height: 180,
+                      width: 135,
+                      fit: BoxFit.cover,
+                    )
+                  : Image.asset(actor.profilePath,
+                      height: 180, width: 135, fit: BoxFit.cover),
+            ),
           ),
           const SizedBox(
             height: 5,
