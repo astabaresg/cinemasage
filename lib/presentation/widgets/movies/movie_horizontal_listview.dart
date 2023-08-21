@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cinemasage/config/utils/human_formats.dart';
 import 'package:cinemasage/domain/entities/movie.dart';
+import 'package:cinemasage/presentation/widgets/shared/custom_title_header.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -49,7 +50,7 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
       child: Column(
         children: [
           if (widget.title != null || widget.subtitle != null)
-            _Title(
+            CustomTitleHeader(
               title: widget.title,
               subtitle: widget.subtitle,
             ),
@@ -62,39 +63,6 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
             itemBuilder: (context, index) =>
                 FadeInRight(child: _Slide(movie: widget.movies[index])),
           ))
-        ],
-      ),
-    );
-  }
-}
-
-class _Title extends StatelessWidget {
-  final String? title;
-  final String? subtitle;
-  const _Title({this.title, this.subtitle});
-
-  @override
-  Widget build(BuildContext context) {
-    final titleStyle = Theme.of(context)
-        .textTheme
-        .titleLarge!
-        .copyWith(fontWeight: FontWeight.bold);
-    return Container(
-      padding: const EdgeInsets.only(top: 10),
-      margin: const EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-        children: [
-          if (title != null)
-            Text(
-              title!,
-              style: titleStyle,
-            ),
-          const Spacer(),
-          if (subtitle != null)
-            FilledButton.tonal(
-                onPressed: () {},
-                style: const ButtonStyle(visualDensity: VisualDensity.compact),
-                child: Text(subtitle!))
         ],
       ),
     );

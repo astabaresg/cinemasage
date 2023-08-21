@@ -1,12 +1,12 @@
 import 'package:cinemasage/domain/entities/actor.dart';
 import 'package:cinemasage/presentation/providers/actors/actors_repository_provider.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final actorsByMovieProvider =
     StateNotifierProvider<ActorsByMovieNotifier, Map<String, List<Actor>>>(
   (ref) {
-    final getActors = ref.watch(actorsRepositoryProvider).getActorsByMovie;
-    return ActorsByMovieNotifier(getActors: getActors);
+    final actorsRepository = ref.watch(actorsRepositoryProvider);
+    return ActorsByMovieNotifier(getActors: actorsRepository.getActorsByMovie);
   },
 );
 

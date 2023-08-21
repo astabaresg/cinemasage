@@ -1,6 +1,5 @@
 import 'package:cinemasage/domain/entities/movie.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   final Movie movie;
@@ -16,12 +15,6 @@ class CustomSliverAppBar extends StatelessWidget {
       // title: Text(movie.title),
 
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        title: Text(
-          movie.title,
-          style: GoogleFonts.getFont('Poppins', fontSize: 20),
-          textAlign: TextAlign.start,
-        ),
         background: Stack(
           children: [
             SizedBox.expand(

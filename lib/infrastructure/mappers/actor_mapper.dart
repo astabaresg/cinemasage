@@ -9,6 +9,6 @@ class ActorMapper {
       profilePath: cast.profilePath == ''
           ? Constants.CAST_PROFILE_DEFAULT_IMAGE
           : '${Constants.MOVIE_DB_API_IMAGES}${cast.profilePath}',
-      haveProfilePath: cast.profilePath == '',
+      haveProfilePath: cast.profilePath != '',
       character: cast.character);
 }

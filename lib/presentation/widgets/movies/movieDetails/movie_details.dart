@@ -1,4 +1,5 @@
 import 'package:cinemasage/domain/entities/movie.dart';
+import 'package:cinemasage/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class MovieDetails extends StatelessWidget {
@@ -67,9 +68,16 @@ class MovieDetails extends StatelessWidget {
             ],
           ),
         ),
+        const CustomTitleHeader(
+          title: 'Cast original',
+        ),
         const SizedBox(
-          height: 100,
-        )
+          height: 10,
+        ),
+        ActorsHorizontalListview(movieId: movie.id.toString()),
+        const SizedBox(
+          height: 30,
+        ),
       ],
     );
   }
