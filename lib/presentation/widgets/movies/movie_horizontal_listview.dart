@@ -1,7 +1,6 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:cinemasage/config/utils/human_formats.dart';
 import 'package:cinemasage/domain/entities/movie.dart';
-import 'package:cinemasage/presentation/widgets/shared/custom_title_header.dart';
+import 'package:cinemasage/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -122,30 +121,10 @@ class _Slide extends StatelessWidget {
               // textAlign: TextAlign.center,
             ),
           ),
-
           // Rating
-          Row(
-            children: [
-              Icon(
-                Icons.star_half_outlined,
-                color: Colors.yellow.shade800,
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              Text(
-                '${movie.voteAverage}',
-                style: textStyles.bodyMedium
-                    ?.copyWith(color: Colors.yellow.shade800),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                HumanFormats.number(movie.popularity),
-                style: textStyles.bodySmall,
-              )
-            ],
+          MovieRating(
+            rating: movie.voteAverage,
+            popularity: movie.popularity,
           )
         ],
       ),

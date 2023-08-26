@@ -17,7 +17,7 @@ class MovieMapper {
       popularity: moviedb.popularity,
       posterPath: moviedb.posterPath != ''
           ? '${Constants.MOVIE_DB_API_IMAGES}${moviedb.posterPath}'
-          : Constants.POSTER_NOT_FOUND_MESSAGE,
+          : Constants.POSTER_NOT_FOUND_IMAGE,
       releaseDate: moviedb.releaseDate,
       title: moviedb.title,
       video: moviedb.video,
@@ -37,7 +37,7 @@ class MovieMapper {
       popularity: movie.popularity,
       posterPath: movie.posterPath != ''
           ? '${Constants.MOVIE_DB_API_IMAGES}${movie.posterPath}'
-          : Constants.POSTER_NOT_FOUND_MESSAGE,
+          : Constants.POSTER_NOT_FOUND_IMAGE,
       releaseDate: movie.releaseDate,
       title: movie.title,
       video: movie.video,

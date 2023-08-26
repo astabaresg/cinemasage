@@ -1,4 +1,3 @@
-import 'package:cinemasage/config/constants/constants.dart';
 import 'package:cinemasage/config/dio/dio_config.dart';
 import 'package:cinemasage/infrastructure/models/moviedb/movie_details.dart';
 
@@ -14,8 +13,6 @@ class MovieDBDatasource extends MoviesDataSource {
     final movieDbResponse = MovieDbResponse.fromJson(json);
 
     final List<Movie> movies = movieDbResponse.results
-        .where((movieDb) =>
-            movieDb.posterPath != Constants.POSTER_NOT_FOUND_MESSAGE)
         .map((e) => MovieMapper.movieDBToEntity(e))
         .toList();
     return movies;
@@ -58,5 +55,12 @@ class MovieDBDatasource extends MoviesDataSource {
     final movieDetails = MovieDetails.fromJson(response.data);
     final Movie movie = MovieMapper.movieDetailsToEntity(movieDetails);
     return movie;
+  }
+
+  @override
+  Future<List<Movie>> searchMovies(String query) async {
+    final response =
+        await dio.get('/search/movie', queryParameters: {'query': query});
+    return _jsonToMovies(response.data);
   }
 }
