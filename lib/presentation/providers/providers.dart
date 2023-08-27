@@ -5,3 +5,4 @@ export 'package:cinemasage/presentation/providers/movies/movie_info_provider.dar
 export 'package:cinemasage/presentation/providers/movies/movies_providers.dart';
 export 'package:cinemasage/presentation/providers/movies/movies_repository_provider.dart';
 export 'package:cinemasage/presentation/providers/movies/movies_slideshow_provider.dart';
+export 'package:cinemasage/presentation/providers/search/search_movies_provider.dart';
